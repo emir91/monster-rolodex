@@ -1,4 +1,5 @@
-import './search-box.styles.css'
+import { ChangeEventHandler, ChangeEvent } from 'react';
+import './search-box.styles.css';
 
 // class SearchBox extends Component {
 //     render() {
@@ -11,9 +12,15 @@ import './search-box.styles.css'
 //     }
 // }
 
-const SearchBox = ({ className, placeholder, onChangeHandler }) => (
+type SearchBoxProps =  {
+    className: string;
+    placeholder?: string;
+    onChangeHandler: (event: ChangeEvent<HTMLInputElement>) => void  ;
+}
+
+const SearchBox = ({ className, placeholder, onChangeHandler }: SearchBoxProps) => (
     <div>
         <input className={`monster-search-box ${className}`} placeholder={placeholder} onChange={onChangeHandler}/>
-    </div>
+    </div> 
 )
 export default SearchBox;
